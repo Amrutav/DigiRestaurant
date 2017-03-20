@@ -1,5 +1,5 @@
 package com.liw.dr.controller;
 
-public class Test {
+public class LoginController {
 
 }

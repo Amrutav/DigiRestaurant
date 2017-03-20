@@ -28,11 +28,6 @@
 		<property name="minEvictableIdleTimeMillis" value="10000"/>
 	</bean>
 
-	
-	
-	
-	
-
 	<bean id="commonSessionFactory"
 		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
 		<property name="dataSource" ref="commonDataSource" />
@@ -46,6 +41,7 @@
 				<prop key="hibernate.connection.characterEncoding">UTF-8</prop>
 				<prop key="hibernate.connection.charSet">UTF-8</prop>
 				<prop key="hibernate.default_schema">${hibernate.defaultSchema.common}</prop>
+				<prop key="hibernate.hbm2ddl.auto">${hibernate.hbm2ddl.auto}</prop>
 				<!-- <prop key="hibernate.cache.use_query_cache">true</prop> 
 				<prop key="hibernate.max_fetch_depth">4</prop> 
 				<prop key="hibernate.cache.use_second_level_cache">true</prop> 
@@ -57,7 +53,8 @@
 		</property>
 		<property name="annotatedClasses">
   	 <list>
-   		  <value>com.csmpl.otp.auth.vo.AuditAuthentication</value>
+   		  	<value>com.liw.dr.entity.Role</value>	
+			<value>com.liw.dr.entity.User</value>
    </list>
   </property>
 		<!-- <property name="mappingResources">
@@ -70,6 +67,10 @@
 		</property> -->
 	</bean>
 
+	<bean id="hibernateTransactionManager"
+		class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
 	
 	  
 	</beans>
