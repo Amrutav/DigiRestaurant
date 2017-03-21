@@ -20,5 +20,18 @@
 	<property name="maxUploadSize" value="1000000" />
 </bean> -->
 
+	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix">
+			<value>/</value>
+		</property>
+		<property name="suffix">
+			<value>.html</value>
+		</property>
+	</bean>
+
 	<mvc:resources mapping="/WEB-INF/**" location="/WEB-INF/" />
+	<mvc:resources mapping="/dist/**" location="/dist/" />
+	<mvc:resources mapping="/docs/**" location="/docs/" />
+	<mvc:resources mapping="/public/**" location="/public/" />
+	<mvc:resources mapping="/src/**" location="/src/" />
 </beans>
